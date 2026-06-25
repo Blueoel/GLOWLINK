@@ -267,10 +267,10 @@ input {
 }
 
 .status-strip {
+  grid-area: status;
   display: grid;
   grid-template-columns: repeat(3, minmax(180px, 1fr));
   gap: 12px;
-  margin-top: 16px;
   padding: 10px;
   border: 1px solid rgba(96, 165, 250, 0.28);
   border-radius: 8px;
@@ -302,11 +302,12 @@ input {
 
 .admin-grid {
   display: grid;
-  grid-template-columns: minmax(380px, 1.18fr) minmax(250px, 0.82fr) minmax(230px, 0.75fr) minmax(230px, 0.75fr);
+  grid-template-columns: minmax(260px, 0.8fr) minmax(380px, 1.15fr) minmax(260px, 0.8fr);
   grid-template-areas:
-    "map map map map"
-    "color preview settings settings"
-    "controls preview settings settings";
+    "map map map"
+    "status status status"
+    "color controls preview"
+    "settings settings settings";
   gap: 18px;
   padding-top: 18px;
 }
@@ -586,6 +587,7 @@ input[type="range"] {
   }
 
   .map-panel,
+  .status-strip,
   .color-panel,
   .controls-panel,
   .preview-panel,
