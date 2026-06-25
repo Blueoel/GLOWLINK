@@ -20,7 +20,7 @@ let showState = {
   color: "#111827",
   brightness: 85,
   countdownTo: null,
-  title: "\uc0c8\ub85c\uc6b4 \ubbf8\ub798\ub97c \uc900\ube44\uc911\uc785\ub2c8\ub2e4",
+  title: "\uc9c0\uae08\uc740 \uc900\ube44\uc911\uc785\ub2c8\ub2e4",
   subtitle: "2026 \ucd9c\ubc94\uc2dd LIGHT SHOW",
   startAt: Date.now() + 3 * 60 * 1000,
   capacity: 300,
