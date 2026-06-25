@@ -302,7 +302,7 @@ input {
 
 .admin-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 1.05fr) minmax(260px, 0.9fr) minmax(300px, 1fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(380px, 1.18fr) minmax(250px, 0.82fr) minmax(230px, 0.75fr) minmax(230px, 0.75fr);
   grid-template-areas:
     "map map map map"
     "color preview settings settings"
@@ -432,12 +432,14 @@ input {
 
 .stage-grid,
 .mode-grid {
-  grid-template-columns: repeat(3, minmax(96px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .button-grid button,
 .settings-actions button {
   min-height: 62px;
+  min-width: 0;
+  padding: 0 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   background: #172654;
