@@ -1,6 +1,6 @@
 # GlowLink
 
-GlowLink is a mobile audience LED control system for events. Participants open the public participant URL on their phones, and an operator controls colors, countdowns, and light modes from the admin page.
+GlowLink는 이벤트를 위한 모바일 오디언스 LED 제어 시스템입니다. 참가자는 휴대폰에서 공개 참가자 URL을 열고 운영자가 관리자 페이지에서 색상, 카운트다운 및 조명 모드를 제어할 수 있는 시스템입니다.
 
 ## Local Run
 
