@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>&#44288;&#47532;&#51088; | GlowLink</title>
+    <link rel="stylesheet" href="/styles.css?v=20260625-14" />
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <header class="admin-header">
+        <div>
+          <p id="adminSubtitle">2026 &#52636;&#48276;&#49885; LIGHT SHOW</p>
+          <h1 id="adminTitle">GlowLink Control</h1>
+        </div>
+        <div id="serverBadge" class="server-badge">&#49436;&#48260; &#50672;&#44208;&#51473;</div>
+      </header>
+
+      <section class="status-strip" aria-label="&#54788;&#51116; &#49345;&#53468;">
+        <div class="status-card">
+          <span>&#54788;&#51116; &#45800;&#44228;</span>
+          <strong id="currentStepValue">&#45824;&#44592;</strong>
+        </div>
+        <div class="status-card">
+          <span>&#54788;&#51116; &#47784;&#46300;</span>
+          <strong id="currentModeValue">&#51204;&#52404; &#51216;&#46321;</strong>
+        </div>
+        <div class="status-card">
+          <span>&#52280;&#44032; &#54788;&#54889;</span>
+          <strong id="currentCountValue">0 / 300</strong>
+        </div>
+      </section>
+
+      <section class="admin-grid">
+        <article class="panel map-panel">
+          <div class="panel-title">
+            <h2>&#49892;&#49884;&#44036; &#49353; &#54788;&#54889;</h2>
+            <span id="phaseLabel">&#45824;&#44592;</span>
+          </div>
+          <div id="seatGrid" class="seat-grid" aria-label="&#52280;&#44032;&#51088; &#49353;&#49345; &#54788;&#54889;"></div>
+        </article>
+
+        <article class="panel color-panel">
+          <h2>&#49353;&#49345; &#49440;&#53469;</h2>
+          <div id="swatches" class="swatches"></div>
+          <label class="range-label">
+            &#48157;&#44592; &#51312;&#51208;
+            <input id="brightness" type="range" min="5" max="100" value="85" />
+            <span id="brightnessValue">85%</span>
+          </label>
+        </article>
+
+        <article class="panel controls-panel">
+          <h2>&#49884;&#45208;&#47532;&#50724; &#52968;&#53944;&#47204;</h2>
+          <div class="control-section">
+            <h3>&#45800;&#44228; &#51228;&#50612;</h3>
+            <div class="button-grid stage-grid">
+              <button data-command="wait" type="button">&#45824;&#44592;</button>
+              <button data-command="countdown" type="button">&#52852;&#50868;&#53944;&#45796;&#50868;</button>
+              <button data-command="off" class="danger" type="button">&#51333;&#47308;/OFF</button>
+            </div>
+          </div>
+          <div class="control-section">
+            <h3>&#47784;&#46300; &#51228;&#50612;</h3>
+            <div class="button-grid mode-grid">
+              <button data-command="light" type="button">&#51204;&#52404; &#51216;&#46321;</button>
+              <button data-command="mix" type="button">&#54844;&#54633; &#47336;&#54532;</button>
+              <button data-command="random" type="button">&#47004;&#45924; &#47336;&#54532;</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel preview-panel">
+          <h2>&#52280;&#44032;&#51088; &#54868;&#47732; &#48120;&#47532;&#48372;&#44592;</h2>
+          <div class="phone-preview">
+            <div class="preview-screen">
+              <p id="previewSubtitle">2026 &#52636;&#48276;&#49885; LIGHT SHOW</p>
+              <strong id="previewText">&#49352;&#47196;&#50868; &#48120;&#47000;&#47484; &#51456;&#48708;&#51473;&#51077;&#45768;&#45796;</strong>
+              <span id="previewSeat">A01</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel settings-panel">
+          <h2>&#54665;&#49324; &#49444;&#51221;</h2>
+          <label>&#47700;&#51064; &#53440;&#51060;&#53952;<input id="titleInput" value="&#49352;&#47196;&#50868; &#48120;&#47000;&#47484; &#51456;&#48708;&#51473;&#51077;&#45768;&#45796;" /></label>
+          <label>&#49436;&#48652;&#53440;&#51060;&#53952;<input id="subtitleInput" value="2026 &#52636;&#48276;&#49885; LIGHT SHOW" /></label>
+          <label>&#49884;&#51089; &#49884;&#44036;<input id="startTimeInput" type="datetime-local" /></label>
+          <div class="settings-row">
+            <label>&#52852;&#50868;&#53944;&#45796;&#50868; &#52488;<input id="countdownSeconds" type="number" min="3" max="300" value="30" /></label>
+            <label>&#51064;&#50896;&#49688;<input id="capacityInput" type="number" min="1" max="1000" value="300" /></label>
+          </div>
+          <div class="settings-actions">
+            <button id="saveTitle" type="button">&#54665;&#49324; &#49444;&#51221; &#51200;&#51109;</button>
+            <button id="resetAll" class="outline" type="button">&#52280;&#44032;&#51088; &#52488;&#44592;&#54868;</button>
+          </div>
+        </article>
+      </section>
+
+      <footer class="admin-footer">
+        <span id="footerStatus">&#44288;&#47532;&#51088; &#45824;&#49884;&#48372;&#46300;&#44032; &#51456;&#48708;&#46104;&#50632;&#49845;&#45768;&#45796;.</span>
+      </footer>
+    </main>
+    <script src="/admin.js?v=20260625-13" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>GlowLink</title>
+    <link rel="stylesheet" href="/styles.css?v=20260625-14" />
+  </head>
+  <body class="participant-body">
+    <main id="participant" class="participant-shell">
+      <header class="topbar">
+        <div class="status"><span id="statusDot"></span><strong id="statusText">&#50672;&#44208; &#51473;</strong></div>
+        <button id="keepAwake" type="button">&#54868;&#47732; &#50976;&#51648; &#53020;&#44592;</button>
+      </header>
+
+      <section id="lobby" class="participant-stage">
+        <p id="lobbySubtitle" class="eyebrow">2026 &#52636;&#48276;&#49885; LIGHT SHOW</p>
+        <h1 id="lobbyTitle">&#49352;&#47196;&#50868; &#48120;&#47000;&#47484; &#51456;&#48708;&#51473;&#51077;&#45768;&#45796;</h1>
+        <button id="joinButton" class="join-button" type="button">&#51077;&#51109;&#54616;&#44592;</button>
+        <p id="lobbyMessage" class="muted">&#51077;&#51109;&#54616;&#47732; &#49440;&#52265;&#49692;&#51004;&#47196; &#48264;&#54840;&#44032; &#51088;&#46041; &#48176;&#51221;&#46121;&#45768;&#45796;.</p>
+      </section>
+
+      <section id="waiting" class="participant-stage is-hidden">
+        <p id="waitingSubtitle" class="eyebrow">2026 &#52636;&#48276;&#49885; LIGHT SHOW</p>
+        <h1 id="waitingTitle">&#49352;&#47196;&#50868; &#48120;&#47000;&#47484; &#51456;&#48708;&#51473;&#51077;&#45768;&#45796;</h1>
+        <div id="timer" class="timer">00:00:00</div>
+        <p id="timerCaption" class="muted">&#54665;&#49324; &#49884;&#51089;&#44620;&#51648; &#45224;&#51008; &#49884;&#44036;</p>
+      </section>
+
+      <section id="countdown" class="participant-stage countdown-stage is-hidden">
+        <div id="countNumber" class="count-number">5</div>
+      </section>
+
+      <section id="light" class="light-stage is-hidden" aria-live="polite">
+        <div id="lightText">LIGHT</div>
+      </section>
+
+      <footer class="seatbar">
+        <div>
+          <span>YOUR CODE</span>
+          <strong id="seatLabel">-</strong>
+        </div>
+        <div class="footer-brand">
+          <span>GLOWLINK</span>
+          <strong>LIVE</strong>
+        </div>
+        <div>
+          <span>SERVER SYNC</span>
+          <strong id="syncLabel">--</strong>
+        </div>
+      </footer>
+    </main>
+    <script src="/participant.js?v=20260625-17" type="module"></script>
+  </body>
+</html>
