@@ -26,3 +26,7 @@ After deployment:
 - Admin tablet URL: `https://YOUR-SERVICE.onrender.com/admin.html`
 
 Set `ADMIN_PIN` in Render so public users can join as participants while only the operator can send admin commands.
+
+## Documents
+
+- [Technical Design](docs/technical-design.md)
