@@ -38,7 +38,7 @@ const elements = {
 let currentSnapshot = null;
 let wakeLock = null;
 let timerHandle = null;
-let syncStartedAt = performance.now();
+let syncLatencyMs = 0;
 let serverSnapshotAt = Date.now();
 let clientSnapshotAt = performance.now();
 
@@ -141,7 +141,7 @@ function render(snapshot) {
   elements.waitingSubtitle.textContent = subtitle;
   elements.lobbyTitle.textContent = title;
   elements.waitingTitle.textContent = title;
-  elements.syncLabel.textContent = `-${Math.round(performance.now() - syncStartedAt)}ms`;
+  elements.syncLabel.textContent = `-${syncLatencyMs}ms`;
   elements.light.dataset.mode = snapshot.state.mode;
   setLight(myColor(snapshot), myBrightness(snapshot));
 
@@ -192,6 +192,7 @@ function startTimer() {
 }
 
 async function join() {
+  const startedAt = performance.now();
   const response = await fetch("/api/join", {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -201,18 +202,19 @@ async function join() {
   if (!response.ok) {
     elements.lobbyMessage.textContent = text.full;
     if (data.snapshot) {
-      syncStartedAt = performance.now();
+      syncLatencyMs = Math.round((performance.now() - startedAt) / 2);
       render(data.snapshot);
     }
     return;
   }
   localStorage.setItem(joinedKey, "1");
-  syncStartedAt = performance.now();
+  syncLatencyMs = Math.round((performance.now() - startedAt) / 2);
   render(data.snapshot);
 }
 
 async function heartbeat() {
   if (!localStorage.getItem(joinedKey)) return;
+  const startedAt = performance.now();
   const response = await fetch("/api/heartbeat", {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -221,7 +223,7 @@ async function heartbeat() {
   if (!response?.ok) return;
   const data = await response.json().catch(() => null);
   if (data?.snapshot) {
-    syncStartedAt = performance.now();
+    syncLatencyMs = Math.round((performance.now() - startedAt) / 2);
     render(data.snapshot);
   }
 }
@@ -257,7 +259,7 @@ function connectEvents() {
   events.addEventListener("error", () => setOnline(false));
   for (const eventName of ["snapshot", "command"]) {
     events.addEventListener(eventName, (event) => {
-      syncStartedAt = performance.now();
+      syncLatencyMs = 0;
       render(JSON.parse(event.data));
     });
   }
