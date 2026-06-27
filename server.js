@@ -257,7 +257,6 @@ async function handleApi(request, response, pathname) {
     if (participant) {
       participant.lastSeen = now();
     }
-    broadcast();
     json(response, 200, { ok: Boolean(participant), snapshot: snapshot() });
     return;
   }
