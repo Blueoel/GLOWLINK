@@ -200,10 +200,14 @@ async function join() {
   const data = await response.json();
   if (!response.ok) {
     elements.lobbyMessage.textContent = text.full;
-    if (data.snapshot) render(data.snapshot);
+    if (data.snapshot) {
+      syncStartedAt = performance.now();
+      render(data.snapshot);
+    }
     return;
   }
   localStorage.setItem(joinedKey, "1");
+  syncStartedAt = performance.now();
   render(data.snapshot);
 }
 
@@ -216,7 +220,10 @@ async function heartbeat() {
   }).catch(() => {});
   if (!response?.ok) return;
   const data = await response.json().catch(() => null);
-  if (data?.snapshot) render(data.snapshot);
+  if (data?.snapshot) {
+    syncStartedAt = performance.now();
+    render(data.snapshot);
+  }
 }
 
 function leave() {
